@@ -33,13 +33,31 @@ public class Garage {
 		for(String ligne: Files.readAllLines(path)){
 			System.out.println(ligne);
 		}
-		System.out.println("Ajouter un véhicule:");
+		System.out.println("\nAjouter un véhicule:");
 		Scanner sc = new Scanner(System.in);
 		String newCar = sc.nextLine();
-		String newEntry = newCar + "\n";
-		
-		//ajout de la nouvelle entrée:
+		String newEntry = newCar + ": ";
+		//ajout de la nouvelle entrée
 		Files.write(path, newEntry.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
+		
+		//purge du scanner avant nouvelle utilisation
+		sc.nextLine();
+		System.out.println("\nAjouter une option:");
+		String newOption = sc.nextLine();
+		String newEntry2 = newOption + " ";
+		//ajout de la nouvelle entrée:
+		Files.write(path, newEntry2.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
+		
+		//purge du scanner avant nouvelle utilisation
+		sc.nextLine();
+		System.out.println("\nAjouter Moteur:");
+		String newEngine = sc.nextLine();
+		String newEntry3 = newEngine + " ";
+		//ajout de la nouvelle entrée:
+		Files.write(path, newEntry3.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
+		
+		String backspace = "\n";
+		Files.write(path, backspace.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		
 	}
 	
